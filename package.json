@@ -11,7 +11,7 @@
     "start": "node src/server.mjs",
     "dev": "concurrently \"npm:build:css\" \"npm:dev:server\"",
     "dev:server": "nodemon src/server.mjs",
-    "build:css": "postcss ./src/public/styles/styles.css -o ./src/public/styles/build.css --watch",
+    "build:css": "postcss ./src/public/styles/styles.css -o ./src/public/styles/build.css",
     "build:css:prod": "postcss ./src/public/styles/styles.css -o ./src/public/styles/build.css",
     "build": "npm run build:css:prod",
     "test": "echo \"Error: no test specified\" && exit 1"
