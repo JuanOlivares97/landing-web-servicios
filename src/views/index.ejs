@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="bg-white text-gray-900">
+  <a href="#inicio" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-blue-600 text-white px-3 py-2 rounded">Saltar al contenido</a>
+
+  <header>
+    <%- include('partials/nav') %>
+  </header>
+
+  <main id="contenido-principal">
+    <%- include('components/hero') %>
+    <%- include('components/about') %>
+    <%- include('components/services') %>
+    <%- include('components/testimonials') %>
+    <%- include('components/contact') %>
+  </main>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/whatsapp') %>
+
+  <script>
+    // Toggle menú móvil accesible
+    (function(){
+      var btn = document.getElementById('navToggle');
+      var mobile = document.getElementById('mobile-nav');
+      var primary = document.getElementById('primary-nav');
+      if (!btn || !mobile) return;
+      btn.addEventListener('click', function(){
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', (!expanded).toString());
+        mobile.classList.toggle('hidden');
+      });
+      // Cerrar menú móvil al navegar
+      mobile.addEventListener('click', function(e){
+        if (e.target.tagName === 'A') {
+          btn.setAttribute('aria-expanded', 'false');
+          mobile.classList.add('hidden');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

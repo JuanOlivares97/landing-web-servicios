@@ -1,0 +1,106 @@
+<section id="servicios" class="py-20 bg-corporate-cream">
+  <div class="max-w-7xl mx-auto px-4">
+    <header class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-corporate-navy mb-4 font-corporate">Servicios Especializados</h2>
+      <p class="text-xl text-corporate-gray-blue max-w-3xl mx-auto">
+        Soluciones fiscales y financieras integrales para el crecimiento sostenible de tu empresa
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      <!-- Servicios Principales -->
+      <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+        <div class="text-corporate-gold text-5xl mb-6 text-center">
+          <i class="fas fa-calculator"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-corporate-navy mb-4 text-center">Servicios Contables</h3>
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center text-corporate-gray-blue">
+            <i class="fas fa-check text-corporate-gold mr-3"></i>
+            <span>Contabilidad integral y estados financieros</span>
+          </div>
+          <div class="flex items-center text-corporate-gray-blue">
+            <i class="fas fa-check text-corporate-gold mr-3"></i>
+            <span>Auditorías y revisiones especializadas</span>
+          </div>
+        </div>
+        <button onclick="toggleDetails('contable')" class="w-full bg-corporate-gold text-white py-3 rounded-lg hover:bg-corporate-navy transition-colors duration-300 font-semibold">
+          Ver detalles completos
+        </button>
+        <div id="contable-details" class="hidden mt-4 p-4 bg-gray-50 rounded-lg">
+          <ul class="space-y-2 text-sm text-corporate-gray-blue">
+            <li>• Registro diario de operaciones</li>
+            <li>• Estados financieros mensuales</li>
+            <li>• Conciliaciones bancarias</li>
+            <li>• Auditorías internas y externas</li>
+            <li>• Revisión de procesos contables</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Servicios Fiscales -->
+      <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300">
+        <div class="text-corporate-gold text-5xl mb-6 text-center">
+          <i class="fas fa-file-invoice-dollar"></i>
+        </div>
+        <h3 class="text-2xl font-bold text-corporate-navy mb-4 text-center">Servicios Fiscales</h3>
+        <div class="space-y-3 mb-6">
+          <div class="flex items-center text-corporate-gray-blue">
+            <i class="fas fa-check text-corporate-gold mr-3"></i>
+            <span>Consultoría fiscal estratégica</span>
+          </div>
+          <div class="flex items-center text-corporate-gray-blue">
+            <i class="fas fa-check text-corporate-gold mr-3"></i>
+            <span>Implementación de NIIF</span>
+          </div>
+        </div>
+        <button onclick="toggleDetails('fiscal')" class="w-full bg-corporate-gold text-white py-3 rounded-lg hover:bg-corporate-navy transition-colors duration-300 font-semibold">
+          Ver detalles completos
+        </button>
+        <div id="fiscal-details" class="hidden mt-4 p-4 bg-gray-50 rounded-lg">
+          <ul class="space-y-2 text-sm text-corporate-gray-blue">
+            <li>• Planificación tributaria</li>
+            <li>• Declaraciones de renta</li>
+            <li>• Optimización fiscal legal</li>
+            <li>• Conversión a NIIF</li>
+            <li>• Capacitación en normativas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleDetails(service) {
+        const details = document.getElementById(service + '-details');
+        const button = event.target;
+        
+        if (details.classList.contains('hidden')) {
+          details.classList.remove('hidden');
+          button.textContent = 'Ocultar detalles';
+        } else {
+          details.classList.add('hidden');
+          button.textContent = 'Ver detalles completos';
+        }
+      }
+    </script>
+
+    <!-- Sección de clientes -->
+    <div class="text-center">
+      <h3 class="text-3xl font-bold text-corporate-navy mb-8 font-corporate">Empresas que Confían en Nosotros</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+        <div class="bg-white border-2 border-corporate-light-gray h-16 rounded-lg flex items-center justify-center hover:border-corporate-gold transition-colors">
+          <span class="text-corporate-gray-blue font-semibold">PYME 1</span>
+        </div>
+        <div class="bg-white border-2 border-corporate-light-gray h-16 rounded-lg flex items-center justify-center hover:border-corporate-gold transition-colors">
+          <span class="text-corporate-gray-blue font-semibold">CORP 2</span>
+        </div>
+        <div class="bg-white border-2 border-corporate-light-gray h-16 rounded-lg flex items-center justify-center hover:border-corporate-gold transition-colors">
+          <span class="text-corporate-gray-blue font-semibold">EMPRESA 3</span>
+        </div>
+        <div class="bg-white border-2 border-corporate-light-gray h-16 rounded-lg flex items-center justify-center hover:border-corporate-gold transition-colors">
+          <span class="text-corporate-gray-blue font-semibold">NEGOCIO 4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+# Este archivo debe estar en la raíz de tu repositorio de Git/código fuente
+deployment:
+  tasks:
+    # 1. Define la ruta de deployment al Application Root de Node.js
+    # ¡Reemplaza 'username' con tu usuario real de cPanel!
+    - export DEPLOYPATH=/home/supercha/app_supercharly_node
+    
+    # 2. Copia todo el código fuente al directorio de la aplicación Node.js
+    # (¡Esto incluye tu package.json, server.js, etc.!)
+    - /bin/cp -R * $DEPLOYPATH
+    - /bin/cp -R .htaccess $DEPLOYPATH 2>/dev/null || :
+
+    # 3. Mueve la terminal a ese directorio
+    - cd $DEPLOYPATH
+    
+    # 4. Instala o actualiza las dependencias de Node.js
+    - npm install --production
+    
+    # 5. Reinicia la aplicación Node.js para que los cambios surtan efecto
+    # (Esto fuerza al servidor proxy a cargar el nuevo código)
+    - /usr/local/bin/passenger-config restart-app $DEPLOYPATH

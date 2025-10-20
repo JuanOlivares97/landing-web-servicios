@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* Variables de colores corporativos Fiscalis & Finances */
+@theme {
+  --color-corporate-navy: #102133;
+  --color-corporate-dark-navy: #152b42;
+  --color-corporate-light-navy: #2d4f73;
+  --color-corporate-gold: #d4af37;
+  --color-corporate-light-gold: #e6c757;
+  --color-corporate-cream: #f8f6f0;
+  --color-corporate-gray-blue: #4a5568;
+  --color-corporate-light-gray: #f7fafc;
+  --color-corporate-accent: #3182ce;
+  
+  /* Fuente corporativa */
+  --font-family-corporate: Inter, system-ui, sans-serif;
+}

@@ -1,0 +1,35 @@
+{
+  "name": "landing-web-servicios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "ZLOWED",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "dev": "concurrently \"npm:build:css\" \"npm:dev:server\"",
+    "dev:server": "nodemon src/server.mjs",
+    "build:css": "postcss ./src/public/styles/styles.css -o ./src/public/styles/build.css --watch",
+    "build:css:prod": "postcss ./src/public/styles/styles.css -o ./src/public/styles/build.css",
+    "build": "npm run build:css:prod",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "nodemailer": "^7.0.9"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.12",
+    "autoprefixer": "^10.4.17",
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.1.9",
+    "postcss": "^8.4.31",
+    "postcss-cli": "^10.1.0",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^4.0.12"
+  }
+}

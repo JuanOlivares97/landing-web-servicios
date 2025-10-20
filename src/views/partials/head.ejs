@@ -1,0 +1,45 @@
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= title || 'Tu Empresa — Servicios Profesionales' %></title>
+  <meta name="description" content="<%= description || 'Consultoría y servicios profesionales. Somos un equipo experto con soluciones a medida.' %>">
+  <link rel="canonical" href="<%= canonicalUrl || 'http://localhost:8081/' %>">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<%= title || 'Tu Empresa — Servicios Profesionales' %>">
+  <meta property="og:description" content="<%= description || 'Consultoría y servicios profesionales. Somos un equipo experto con soluciones a medida.' %>">
+  <meta property="og:url" content="<%= canonicalUrl || 'http://localhost:8081/' %>">
+  <% if (typeof ogImage !== 'undefined' && ogImage) { %>
+    <meta property="og:image" content="<%= ogImage %>">
+  <% } %>
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= title || 'Tu Empresa — Servicios Profesionales' %>">
+  <meta name="twitter:description" content="<%= description || 'Consultoría y servicios profesionales. Somos un equipo experto con soluciones a medida.' %>">
+  <% if (typeof ogImage !== 'undefined' && ogImage) { %>
+    <meta name="twitter:image" content="<%= ogImage %>">
+  <% } %>
+
+  <link rel="stylesheet" href="/styles/build.css">
+
+  <!-- Organization JSON-LD -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "<%= companyUrl || 'http://localhost:8081/' %>",
+      "name": "<%= companyName || 'Tu Empresa' %>",
+      "logo": "<%= companyLogo || '' %>",
+      "sameAs": [<%- (typeof socialLinks !== 'undefined' && socialLinks && socialLinks.length ? socialLinks.map(l => '"' + l + '"').join(',') : '') %>],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "<%= phone || '' %>",
+          "contactType": "customer service",
+          "areaServed": "<%= areaServed || 'ES' %>"
+        }
+      ]
+    }
+  </script>
