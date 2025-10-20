@@ -59,6 +59,7 @@
     --radius-2xl: 1rem;
     --radius-3xl: 1.5rem;
     --animate-spin: spin 1s linear infinite;
+    --blur-sm: 8px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -251,11 +252,14 @@
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
-  .right-6 {
-    right: calc(var(--spacing) * 6);
+  .right-3 {
+    right: calc(var(--spacing) * 3);
   }
-  .bottom-6 {
-    bottom: calc(var(--spacing) * 6);
+  .bottom-3 {
+    bottom: calc(var(--spacing) * 3);
+  }
+  .z-0 {
+    z-index: 0;
   }
   .z-10 {
     z-index: 10;
@@ -280,9 +284,6 @@
     @media (width >= 96rem) {
       max-width: 96rem;
     }
-  }
-  .mx-3 {
-    margin-inline: calc(var(--spacing) * 3);
   }
   .mx-auto {
     margin-inline: auto;
@@ -325,9 +326,6 @@
   }
   .mb-16 {
     margin-bottom: calc(var(--spacing) * 16);
-  }
-  .mb-20 {
-    margin-bottom: calc(var(--spacing) * 20);
   }
   .ml-4 {
     margin-left: calc(var(--spacing) * 4);
@@ -376,6 +374,12 @@
   }
   .h-20 {
     height: calc(var(--spacing) * 20);
+  }
+  .h-dvh {
+    height: 100dvh;
+  }
+  .min-h-screen {
+    min-height: 100vh;
   }
   .w-5 {
     width: calc(var(--spacing) * 5);
@@ -548,9 +552,6 @@
   .border-corporate-light-gray {
     border-color: var(--color-corporate-light-gray);
   }
-  .border-corporate-light-navy {
-    border-color: var(--color-corporate-light-navy);
-  }
   .border-gray-200 {
     border-color: var(--color-gray-200);
   }
@@ -599,6 +600,10 @@
   .bg-white {
     background-color: var(--color-white);
   }
+  .bg-gradient-to-b {
+    --tw-gradient-position: to bottom in oklab;
+    background-image: linear-gradient(var(--tw-gradient-stops));
+  }
   .bg-gradient-to-br {
     --tw-gradient-position: to bottom right in oklab;
     background-image: linear-gradient(var(--tw-gradient-stops));
@@ -630,8 +635,17 @@
     --tw-gradient-from: var(--color-corporate-navy);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
+  .from-transparent {
+    --tw-gradient-from: transparent;
+    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
+  }
   .via-corporate-gray-blue {
     --tw-gradient-via: var(--color-corporate-gray-blue);
+    --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-via-stops);
+  }
+  .via-transparent {
+    --tw-gradient-via: transparent;
     --tw-gradient-via-stops: var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-via) var(--tw-gradient-via-position), var(--tw-gradient-to) var(--tw-gradient-to-position);
     --tw-gradient-stops: var(--tw-gradient-via-stops);
   }
@@ -715,9 +729,6 @@
   .pb-1 {
     padding-bottom: calc(var(--spacing) * 1);
   }
-  .pb-16 {
-    padding-bottom: calc(var(--spacing) * 16);
-  }
   .text-center {
     text-align: center;
   }
@@ -800,6 +811,9 @@
   .text-white {
     color: var(--color-white);
   }
+  .opacity-20 {
+    opacity: 20%;
+  }
   .opacity-25 {
     opacity: 25%;
   }
@@ -821,6 +835,11 @@
   .shadow-xl {
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .backdrop-blur-sm {
+    --tw-backdrop-blur: blur(var(--blur-sm));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
+    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);
   }
   .transition-all {
     transition-property: all;
@@ -886,13 +905,6 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-corporate-light-gold);
-      }
-    }
-  }
-  .hover\:bg-corporate-light-navy {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-corporate-light-navy);
       }
     }
   }
@@ -1100,6 +1112,229 @@
     }
   }
 }
+.hero-mosaic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.15;
+  background: radial-gradient(circle at 25% 25%, var(--color-corporate-gold) 2px, transparent 2px),
+    radial-gradient(circle at 75% 25%, var(--color-corporate-navy) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 25% 75%, var(--color-corporate-light-gold) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, var(--color-corporate-gray-blue) 2.5px, transparent 2.5px),
+    
+    linear-gradient(45deg, transparent 48%, var(--color-corporate-gold) 49%, var(--color-corporate-gold) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, var(--color-corporate-navy) 49%, var(--color-corporate-navy) 51%, transparent 52%);
+  background-size: 60px 60px,
+    80px 80px,
+    40px 40px,
+    100px 100px,
+    120px 120px,
+    140px 140px;
+  background-position: 0 0,
+    30px 30px,
+    15px 15px,
+    50px 50px,
+    0 0,
+    70px 70px;
+}
+.mobile-menu-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-menu-toggle:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.hamburger-line {
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hamburger-line:nth-child(1) {
+  top: 12px;
+}
+.hamburger-line:nth-child(2) {
+  top: 19px;
+}
+.hamburger-line:nth-child(3) {
+  top: 26px;
+}
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  top: 19px;
+  transform: translateX(-50%) rotate(45deg);
+  background-color: var(--color-corporate-gold);
+}
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+}
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  top: 19px;
+  transform: translateX(-50%) rotate(-45deg);
+  background-color: var(--color-corporate-gold);
+}
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at top right, var(--color-corporate-navy) 0%, var(--color-corporate-dark-navy) 100%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+.mobile-menu-content {
+  text-align: center;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+.mobile-menu-overlay.active .mobile-menu-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+.mobile-menu-item {
+  display: block;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 1.5rem 0;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-100px);
+  opacity: 0;
+}
+.mobile-menu-overlay.active .mobile-menu-item:nth-child(1) {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+.mobile-menu-overlay.active .mobile-menu-item:nth-child(2) {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+.mobile-menu-overlay.active .mobile-menu-item:nth-child(3) {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+}
+.mobile-menu-overlay.active .mobile-menu-item:nth-child(4) {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+}
+@keyframes slideInFromLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.mobile-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--color-corporate-gold), transparent);
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+.mobile-menu-item:hover::before {
+  left: 100%;
+}
+.mobile-menu-item:hover {
+  color: var(--color-corporate-gold);
+  transform: translateY(-5px) scale(1.05);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+.mobile-menu-item.contact-btn {
+  background: linear-gradient(135deg, var(--color-corporate-gold), var(--color-corporate-light-gold));
+  color: var(--color-corporate-navy);
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+.mobile-menu-item.contact-btn:hover {
+  background: linear-gradient(135deg, var(--color-corporate-light-gold), var(--color-corporate-gold));
+  color: var(--color-corporate-navy);
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+}
+.mobile-menu-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--color-corporate-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+.mobile-menu-close:hover {
+  background: var(--color-corporate-gold);
+  transform: rotate(90deg) scale(1.1);
+}
+.mobile-menu-close::before,
+.mobile-menu-close::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: var(--color-corporate-gold);
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+.mobile-menu-close:hover::before,
+.mobile-menu-close:hover::after {
+  background: var(--color-corporate-navy);
+}
+.mobile-menu-close::before {
+  transform: rotate(45deg);
+}
+.mobile-menu-close::after {
+  transform: rotate(-45deg);
+}
+@media (max-width: 480px) {
+  .mobile-menu-item {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    padding: 0.8rem 1.5rem;
+  }
+  .mobile-menu-close {
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 45px;
+    height: 45px;
+  }
+}
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;
@@ -1230,6 +1465,42 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
 @property --tw-duration {
   syntax: "*";
   inherits: false;
@@ -1285,6 +1556,15 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-backdrop-blur: initial;
+      --tw-backdrop-brightness: initial;
+      --tw-backdrop-contrast: initial;
+      --tw-backdrop-grayscale: initial;
+      --tw-backdrop-hue-rotate: initial;
+      --tw-backdrop-invert: initial;
+      --tw-backdrop-opacity: initial;
+      --tw-backdrop-saturate: initial;
+      --tw-backdrop-sepia: initial;
       --tw-duration: initial;
       --tw-scale-x: 1;
       --tw-scale-y: 1;

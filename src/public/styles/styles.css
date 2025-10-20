@@ -15,3 +15,275 @@
   /* Fuente corporativa */
   --font-family-corporate: Inter, system-ui, sans-serif;
 }
+
+/* Mosaic background pattern for hero section */
+.hero-mosaic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  opacity: 0.15;
+  background: 
+    /* Hexagonal pattern */
+    radial-gradient(circle at 25% 25%, var(--color-corporate-gold) 2px, transparent 2px),
+    radial-gradient(circle at 75% 25%, var(--color-corporate-navy) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 25% 75%, var(--color-corporate-light-gold) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, var(--color-corporate-gray-blue) 2.5px, transparent 2.5px),
+    /* Linear patterns */
+    linear-gradient(45deg, transparent 48%, var(--color-corporate-gold) 49%, var(--color-corporate-gold) 51%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, var(--color-corporate-navy) 49%, var(--color-corporate-navy) 51%, transparent 52%);
+  background-size: 
+    60px 60px,
+    80px 80px,
+    40px 40px,
+    100px 100px,
+    120px 120px,
+    140px 140px;
+  background-position: 
+    0 0,
+    30px 30px,
+    15px 15px,
+    50px 50px,
+    0 0,
+    70px 70px;
+}
+
+/* Innovative Mobile Menu Styles */
+.mobile-menu-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu-toggle:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hamburger lines animation */
+.hamburger-line {
+  position: absolute;
+  left: 50%;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hamburger-line:nth-child(1) {
+  top: 12px;
+}
+
+.hamburger-line:nth-child(2) {
+  top: 19px;
+}
+
+.hamburger-line:nth-child(3) {
+  top: 26px;
+}
+
+/* Active state - transform to X */
+.mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+  top: 19px;
+  transform: translateX(-50%) rotate(45deg);
+  background-color: var(--color-corporate-gold);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-50%) scale(0);
+}
+
+.mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+  top: 19px;
+  transform: translateX(-50%) rotate(-45deg);
+  background-color: var(--color-corporate-gold);
+}
+
+/* Circular overlay menu */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at top right, var(--color-corporate-navy) 0%, var(--color-corporate-dark-navy) 100%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0);
+  transform-origin: top right;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* Menu content container */
+.mobile-menu-content {
+  text-align: center;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+}
+
+.mobile-menu-overlay.active .mobile-menu-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Menu items */
+.mobile-menu-item {
+  display: block;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 1.5rem 0;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-100px);
+  opacity: 0;
+}
+
+/* Staggered animation for menu items */
+.mobile-menu-overlay.active .mobile-menu-item:nth-child(1) {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+.mobile-menu-overlay.active .mobile-menu-item:nth-child(2) {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.4s forwards;
+}
+
+.mobile-menu-overlay.active .mobile-menu-item:nth-child(3) {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+}
+
+.mobile-menu-overlay.active .mobile-menu-item:nth-child(4) {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.6s forwards;
+}
+
+@keyframes slideInFromLeft {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Hover effects for menu items */
+.mobile-menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--color-corporate-gold), transparent);
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.mobile-menu-item:hover::before {
+  left: 100%;
+}
+
+.mobile-menu-item:hover {
+  color: var(--color-corporate-gold);
+  transform: translateY(-5px) scale(1.05);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Special styling for contact button */
+.mobile-menu-item.contact-btn {
+  background: linear-gradient(135deg, var(--color-corporate-gold), var(--color-corporate-light-gold));
+  color: var(--color-corporate-navy);
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+}
+
+.mobile-menu-item.contact-btn:hover {
+  background: linear-gradient(135deg, var(--color-corporate-light-gold), var(--color-corporate-gold));
+  color: var(--color-corporate-navy);
+  transform: translateY(-8px) scale(1.08);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+}
+
+/* Close button */
+.mobile-menu-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid var(--color-corporate-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.mobile-menu-close:hover {
+  background: var(--color-corporate-gold);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.mobile-menu-close::before,
+.mobile-menu-close::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: var(--color-corporate-gold);
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-menu-close:hover::before,
+.mobile-menu-close:hover::after {
+  background: var(--color-corporate-navy);
+}
+
+.mobile-menu-close::before {
+  transform: rotate(45deg);
+}
+
+.mobile-menu-close::after {
+  transform: rotate(-45deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .mobile-menu-item {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .mobile-menu-close {
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 45px;
+    height: 45px;
+  }
+}
