@@ -7,12 +7,16 @@
           <img src="/F&F-logo.webp" alt="Fiscalis & Finances Logo" class="h-12 w-auto">
         </a>
       </div>
-      <button class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-corporate-light-navy focus:outline-none focus:ring-2 focus:ring-corporate-gold" aria-controls="primary-nav" aria-expanded="false" id="navToggle">
+      
+      <!-- Innovative Mobile Menu Toggle -->
+      <button class="md:hidden mobile-menu-toggle rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-corporate-gold" aria-controls="mobile-menu-overlay" aria-expanded="false" id="navToggle">
         <span class="sr-only">Abrir menú</span>
-        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
       </button>
+      
+      <!-- Desktop Navigation -->
       <ul id="primary-nav" class="hidden md:flex items-center gap-8 font-medium">
         <li><a href="#inicio" class="text-white hover:text-corporate-gold transition-colors font-corporate">Inicio</a></li>
         <li><a href="#quienes-somos" class="text-white hover:text-corporate-gold transition-colors font-corporate">Quienes Somos</a></li>
@@ -20,11 +24,16 @@
         <li><a href="#contacto" class="text-corporate-navy bg-corporate-gold hover:bg-corporate-light-gold rounded-lg px-6 py-2 font-semibold transition-colors font-corporate shadow-md">Contacto</a></li>
       </ul>
     </div>
-    <ul id="mobile-nav" class="md:hidden hidden flex-col gap-4 py-4 font-medium border-t border-corporate-light-navy bg-corporate-dark-navy">
-      <li><a href="#inicio" class="text-white hover:text-corporate-gold px-3 py-2 hover:bg-corporate-light-navy rounded-md transition-colors font-corporate block">Inicio</a></li>
-      <li><a href="#quienes-somos" class="text-white hover:text-corporate-gold px-3 py-2 hover:bg-corporate-light-navy rounded-md transition-colors font-corporate block">Quienes Somos</a></li>
-      <li><a href="#servicios" class="text-white hover:text-corporate-gold px-3 py-2 hover:bg-corporate-light-navy rounded-md transition-colors font-corporate block">Servicios</a></li>
-      <li><a href="#contacto" class="text-corporate-navy bg-corporate-gold hover:bg-corporate-light-gold rounded-lg px-6 py-2 font-semibold transition-colors font-corporate inline-block mx-3 shadow-md">Contacto</a></li>
-    </ul>
   </div>
 </nav>
+
+<!-- Innovative Mobile Menu Overlay -->
+<div id="mobile-menu-overlay" class="mobile-menu-overlay">
+  <div class="mobile-menu-close" id="mobile-menu-close" aria-label="Cerrar menú"></div>
+  <div class="mobile-menu-content">
+    <a href="#inicio" class="mobile-menu-item font-corporate">Inicio</a>
+    <a href="#quienes-somos" class="mobile-menu-item font-corporate">Quienes Somos</a>
+    <a href="#servicios" class="mobile-menu-item font-corporate">Servicios</a>
+    <a href="#contacto" class="mobile-menu-item contact-btn font-corporate">Contacto</a>
+  </div>
+</div>
